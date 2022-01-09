@@ -5,6 +5,12 @@ class Dumptorrent < Formula
   sha256 "f583a9a2cac2d9522f98fe3245e2214734ead5bd9b9e017109beb95bd700701c"
   license "GPL-2.0-only"
 
+  bottle do
+    root_url "https://github.com/nuomi1/homebrew-tap/releases/download/dumptorrent-1.2"
+    sha256 cellar: :any_skip_relocation, big_sur:      "a8897f5476b4b5b88c7177ed95ef080006d38318f8fe0d90f3c60d632b67008b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "820a8b0451a17ab386d9321cfe58452c17498860921ac323b26527afb44380fb"
+  end
+
   def install
     system "make"
     bin.install "dumptorrent"
