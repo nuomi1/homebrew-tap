@@ -11,7 +11,18 @@ class Dumptorrent < Formula
   end
 
   test do
-    # nothing
-    assert_predicate true, true
+    require "open-uri"
+
+    torrent_filename = "ubuntu-20.04.3-desktop-amd64.iso.torrent"
+
+    open("https://releases.ubuntu.com/20.04/#{torrent_filename}") do |torrent|
+      File.open(testpath / torrent_filename, "wb") do |file|
+        file.write(torrent.read)
+      end
+    end
+
+    torrent_info = shell_output("#{bin}/dumptorrent #{testpath / torrent_filename}")
+
+    assert_match "ubuntu-20.04.3-desktop-amd64.iso 3071934464 (2.86G)", torrent_info
   end
 end
