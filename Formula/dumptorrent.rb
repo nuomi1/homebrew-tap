@@ -16,9 +16,7 @@ class Dumptorrent < Formula
     torrent_filename = "ubuntu-20.04.3-desktop-amd64.iso.torrent"
 
     open("https://releases.ubuntu.com/20.04/#{torrent_filename}") do |torrent|
-      File.open(testpath / torrent_filename, "wb") do |file|
-        file.write(torrent.read)
-      end
+      File.binwrite(testpath / torrent_filename, torrent.read)
     end
 
     torrent_info = shell_output("#{bin}/dumptorrent #{testpath / torrent_filename}")
