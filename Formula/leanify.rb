@@ -2,7 +2,6 @@ class Leanify < Formula
   desc "Lightweight lossless file minifier/optimizer"
   homepage "https://github.com/JayXon/Leanify"
   url "https://github.com/JayXon/Leanify/archive/v0.4.3.tar.gz"
-  version "0.4.3"
   sha256 "ae37565be8c4d8cb89e9e584fb43e8a5f22277a2db4486e388663f98e34ff526"
   license "MIT"
   head "https://github.com/JayXon/Leanify.git"
