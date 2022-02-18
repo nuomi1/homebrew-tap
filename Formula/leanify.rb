@@ -4,7 +4,7 @@ class Leanify < Formula
   url "https://github.com/JayXon/Leanify/archive/v0.4.3.tar.gz"
   sha256 "ae37565be8c4d8cb89e9e584fb43e8a5f22277a2db4486e388663f98e34ff526"
   license "MIT"
-  head "https://github.com/JayXon/Leanify.git"
+  head "https://github.com/JayXon/Leanify.git", branch: "master"
 
   def install
     system "make"
