@@ -24,6 +24,6 @@ class Leanify < Formula
 
     file_sha256 = Digest::SHA256.file(filepath).to_s
 
-    assert_match "e31544d1d81712addfb99b82a9f19c27ee58aa080ade6d61485f325c2ff04df6", file_sha256
+    assert_match "e3e59d6dc773a32dd15dd4b55d3587b5da135630b78374560d46c080fe28d14e", file_sha256
   end
 end
