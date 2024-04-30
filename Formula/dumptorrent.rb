@@ -19,14 +19,17 @@ class Dumptorrent < Formula
   test do
     require "open-uri"
 
-    torrent_filename = "ubuntu-20.04.3-desktop-amd64.iso.torrent"
+    filename = "ubuntu-24.04-desktop-amd64.iso"
+    torrent_filename = "#{filename}.torrent"
+    url = "https://releases.ubuntu.com/24.04/#{torrent_filename}"
+    matched = "#{filename} 6114656256 (5.69G)"
 
-    open("https://releases.ubuntu.com/20.04/#{torrent_filename}") do |torrent|
+    URI.parse(url).open do |torrent|
       File.binwrite(testpath / torrent_filename, torrent.read)
     end
 
     torrent_info = shell_output("#{bin}/dumptorrent #{testpath / torrent_filename}")
 
-    assert_match "ubuntu-20.04.3-desktop-amd64.iso 3071934464 (2.86G)", torrent_info
+    assert_match matched, torrent_info
   end
 end
