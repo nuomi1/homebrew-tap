@@ -6,6 +6,12 @@ class Leanify < Formula
   license "MIT"
   head "https://github.com/JayXon/Leanify.git", branch: "master"
 
+  bottle do
+    root_url "https://github.com/nuomi1/homebrew-tap/releases/download/leanify-0.4.3"
+    sha256 cellar: :any_skip_relocation, ventura:      "c91e1a655efbab7a134a52cc42220b248ba3fd27782aa5d00726070d8d31af0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "e304424d7c956c251508f49fc36f84f6aa37d014890e6a9edf978511fa25eab2"
+  end
+
   def install
     filename = "Makefile"
     text = File.read(filename)
